@@ -1,325 +1,359 @@
-/*---------------------------------------------------------------------
-    File Name: custom.js
----------------------------------------------------------------------*/
+/** 
+  * Template Name: Daily Shop
+  * Version: 1.0  
+  * Template Scripts
+  * Author: MarkUps
+  * Author URI: http://www.markups.io/
+
+  Custom JS
+  
+
+  1. CARTBOX
+  2. TOOLTIP
+  3. PRODUCT VIEW SLIDER 
+  4. POPULAR PRODUCT SLIDER (SLICK SLIDER) 
+  5. FEATURED PRODUCT SLIDER (SLICK SLIDER)
+  6. LATEST PRODUCT SLIDER (SLICK SLIDER) 
+  7. TESTIMONIAL SLIDER (SLICK SLIDER)
+  8. CLIENT BRAND SLIDER (SLICK SLIDER)
+  9. PRICE SLIDER  (noUiSlider SLIDER)
+  10. SCROLL TOP BUTTON
+  11. PRELOADER
+  12. GRID AND LIST LAYOUT CHANGER 
+  13. RELATED ITEM SLIDER (SLICK SLIDER)
+
+  
+**/
+
+jQuery(function($){
 
 
-$(function () {
+  /* ----------------------------------------------------------- */
+  /*  1. CARTBOX 
+  /* ----------------------------------------------------------- */
+    
+     jQuery(".aa-cartbox").hover(function(){
+      jQuery(this).find(".aa-cartbox-summary").fadeIn(500);
+    }
+      ,function(){
+          jQuery(this).find(".aa-cartbox-summary").fadeOut(500);
+      }
+     );   
+  
+  /* ----------------------------------------------------------- */
+  /*  2. TOOLTIP
+  /* ----------------------------------------------------------- */    
+    jQuery('[data-toggle="tooltip"]').tooltip();
+    jQuery('[data-toggle2="tooltip"]').tooltip();
 
-	"use strict";
+  /* ----------------------------------------------------------- */
+  /*  3. PRODUCT VIEW SLIDER 
+  /* ----------------------------------------------------------- */    
 
-	/* Preloader
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    jQuery('#demo-1 .simpleLens-thumbnails-container img').simpleGallery({
+        loading_image: 'demo/images/loading.gif'
+    });
 
-	setTimeout(function () {
-		$('.loader_bg').fadeToggle();
-	}, 1500);
+    jQuery('#demo-1 .simpleLens-big-image').simpleLens({
+        loading_image: 'demo/images/loading.gif'
+    });
 
-	/* JQuery Menu
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+  /* ----------------------------------------------------------- */
+  /*  4. POPULAR PRODUCT SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */      
 
-	$(document).ready(function () {
-		$('header nav').meanmenu();
-	});
+    jQuery('.aa-popular-slider').slick({
+      dots: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    }); 
 
-	/* Tooltip
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+  
+  /* ----------------------------------------------------------- */
+  /*  5. FEATURED PRODUCT SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */      
 
-	$(document).ready(function () {
-		$('[data-toggle="tooltip"]').tooltip();
-	});
+    jQuery('.aa-featured-slider').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+    });
+    
+  /* ----------------------------------------------------------- */
+  /*  6. LATEST PRODUCT SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */      
+    jQuery('.aa-latest-slider').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+    });
 
-	/* sticky
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+  /* ----------------------------------------------------------- */
+  /*  7. TESTIMONIAL SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */     
+    
+    jQuery('.aa-testimonial-slider').slick({
+      dots: true,
+      infinite: true,
+      arrows: false,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: true
+    });
 
-	$(document).ready(function () {
-		$(".sticky-wrapper-header").sticky({ topSpacing: 0 });
-	});
+  /* ----------------------------------------------------------- */
+  /*  8. CLIENT BRAND SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */  
 
-	/* Mouseover
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    jQuery('.aa-client-brand-slider').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 4,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+          // You can unslick at a given breakpoint now by adding:
+          // settings: "unslick"
+          // instead of a settings object
+        ]
+    });
 
-	$(document).ready(function () {
-		$(".main-menu ul li.megamenu").mouseover(function () {
-			if (!$(this).parent().hasClass("#wrapper")) {
-				$("#wrapper").addClass('overlay');
-			}
-		});
-		$(".main-menu ul li.megamenu").mouseleave(function () {
-			$("#wrapper").removeClass('overlay');
-		});
-	});
+  /* ----------------------------------------------------------- */
+  /*  9. PRICE SLIDER  (noUiSlider SLIDER)
+  /* ----------------------------------------------------------- */        
 
-	/* NiceScroll
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
+    jQuery(function(){
+      if($('body').is('.productPage')){
+       var skipSlider = document.getElementById('skipstep');
+        noUiSlider.create(skipSlider, {
+            range: {
+                'min': 0,
+                '10%': 10,
+                '20%': 20,
+                '30%': 30,
+                '40%': 40,
+                '50%': 50,
+                '60%': 60,
+                '70%': 70,
+                '80%': 80,
+                '90%': 90,
+                'max': 100
+            },
+            snap: true,
+            connect: true,
+            start: [20, 70]
+        });
+        // for value print
+        var skipValues = [
+          document.getElementById('skip-value-lower'),
+          document.getElementById('skip-value-upper')
+        ];
 
-	$(".brand-box").niceScroll({
-		cursorcolor: "#9b9b9c",
-	});
-
-	/* NiceSelect
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$(document).ready(function () {
-		$('select').niceSelect();
-	});
-
-
-
-	/* OwlCarousel - Product Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$('.owl-carousel').owlCarousel({
-		items: 5,
-		loop: true,
-		margin: 10,
-		merge: true,
-		responsive: {
-			678: {
-				mergeFit: true
-			},
-			1000: {
-				mergeFit: false
-			}
-		}
-	});
-
-	/* Scroll to Top
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$(window).on('scroll', function () {
-		scroll = $(window).scrollTop();
-		if (scroll >= 100) {
-			$("#back-to-top").addClass('b-show_scrollBut')
-		} else {
-			$("#back-to-top").removeClass('b-show_scrollBut')
-		}
-	});
-	$("#back-to-top").on("click", function () {
-		$('body,html').animate({
-			scrollTop: 0
-		}, 1000);
-	});
-
-
-	
-	/* Contact-form
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	$.validator.setDefaults({
-		submitHandler: function () {
-			alert("submitted!");
-		}
-	});
-
-	$(document).ready(function () {
-		$("#contact-form").validate({
-			rules: {
-				firstname: "required",
-				email: {
-					required: true,
-					email: true
-				},
-				lastname: "required",
-				message: "required",
-				agree: "required"
-			},
-			messages: {
-				firstname: "Please enter your firstname",
-				email: "Please enter a valid email address",
-				lastname: "Please enter your lastname",
-				username: {
-					required: "Please enter a username",
-					minlength: "Your username must consist of at least 2 characters"
-				},
-				message: "Please enter your Message",
-				agree: "Please accept our policy"
-			},
-			errorElement: "div",
-			errorPlacement: function (error, element) {
-				// Add the `help-block` class to the error element
-				error.addClass("help-block");
-
-				if (element.prop("type") === "checkbox") {
-					error.insertAfter(element.parent("input"));
-				} else {
-					error.insertAfter(element);
-				}
-			},
-			highlight: function (element, errorClass, validClass) {
-				$(element).parents(".col-md-4, .col-md-12").addClass("has-error").removeClass("has-success");
-			},
-			unhighlight: function (element, errorClass, validClass) {
-				$(element).parents(".col-md-4, .col-md-12").addClass("has-success").removeClass("has-error");
-			}
-		});
-	});
-
-	/* heroslider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	var swiper = new Swiper('.heroslider', {
-		spaceBetween: 30,
-		centeredSlides: true,
-		slidesPerView: 'auto',
-		paginationClickable: true,
-		loop: true,
-		autoplay: {
-			delay: 2500,
-			disableOnInteraction: false,
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-			dynamicBullets: true
-		},
-	});
-
-
-	/* Product Filters
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	var swiper = new Swiper('.swiper-product-filters', {
-		slidesPerView: 3,
-		slidesPerColumn: 2,
-		spaceBetween: 30,
-		breakpoints: {
-			1024: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-			768: {
-				slidesPerView: 2,
-				spaceBetween: 30,
-				slidesPerColumn: 1,
-			},
-			640: {
-				slidesPerView: 2,
-				spaceBetween: 20,
-				slidesPerColumn: 1,
-			},
-			480: {
-				slidesPerView: 1,
-				spaceBetween: 10,
-				slidesPerColumn: 1,
-			}
-		},
-		pagination: {
-			el: '.swiper-pagination',
-			clickable: true,
-			dynamicBullets: true
-		}
-	});
-
-	/* Countdown
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$('[data-countdown]').each(function () {
-		var $this = $(this),
-			finalDate = $(this).data('countdown');
-		$this.countdown(finalDate, function (event) {
-			var $this = $(this).html(event.strftime(''
-				+ '<div class="time-bar"><span class="time-box">%w</span> <span class="line-b">weeks</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%d</span> <span class="line-b">days</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%H</span> <span class="line-b">hr</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%M</span> <span class="line-b">min</span></div> '
-				+ '<div class="time-bar"><span class="time-box">%S</span> <span class="line-b">sec</span></div>'));
-		});
-	});
-
-	/* Deal Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$('.deal-slider').slick({
-		dots: false,
-		infinite: false,
-		prevArrow: '.previous-deal',
-		nextArrow: '.next-deal',
-		speed: 500,
-		slidesToShow: 3,
-		slidesToScroll: 3,
-		infinite: false,
-		responsive: [{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 3,
-				slidesToScroll: 2,
-				infinite: true,
-				dots: false
-			}
-		}, {
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 2,
-				slidesToScroll: 2
-			}
-		}, {
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}]
-	});
-
-	/* News Slider
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$('#news-slider').slick({
-		dots: false,
-		infinite: false,
-		prevArrow: '.previous',
-		nextArrow: '.next',
-		speed: 500,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		responsive: [{
-			breakpoint: 1024,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				infinite: true,
-				dots: false
-			}
-		}, {
-			breakpoint: 600,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}, {
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 1,
-				slidesToScroll: 1
-			}
-		}]
-	});
-
-	/* Fancybox
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$(".fancybox").fancybox({
-		maxWidth: 1200,
-		maxHeight: 600,
-		width: '70%',
-		height: '70%',
-	});
-
-	/* Toggle sidebar
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-
-	$(document).ready(function () {
-		$('#sidebarCollapse').on('click', function () {
-			$('#sidebar').toggleClass('active');
-			$(this).toggleClass('active');
-		});
-	});
-
-	/* Product slider 
-	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
-	// optional
-	$('#blogCarousel').carousel({
-		interval: 5000
-	});
+        skipSlider.noUiSlider.on('update', function( values, handle ) {
+          skipValues[handle].innerHTML = values[handle];
+        });
+      }
+    });
 
 
+    
+  /* ----------------------------------------------------------- */
+  /*  10. SCROLL TOP BUTTON
+  /* ----------------------------------------------------------- */
+
+  //Check to see if the window is top if not then display button
+
+    jQuery(window).scroll(function(){
+      if ($(this).scrollTop() > 300) {
+        $('.scrollToTop').fadeIn();
+      } else {
+        $('.scrollToTop').fadeOut();
+      }
+    });
+     
+    //Click event to scroll to top
+
+    jQuery('.scrollToTop').click(function(){
+      $('html, body').animate({scrollTop : 0},800);
+      return false;
+    });
+  
+  /* ----------------------------------------------------------- */
+  /*  11. PRELOADER
+  /* ----------------------------------------------------------- */
+
+    jQuery(window).load(function() { // makes sure the whole site is loaded      
+      jQuery('#wpf-loader-two').delay(200).fadeOut('slow'); // will fade out      
+    })
+
+  /* ----------------------------------------------------------- */
+  /*  12. GRID AND LIST LAYOUT CHANGER 
+  /* ----------------------------------------------------------- */
+
+  jQuery("#list-catg").click(function(e){
+    e.preventDefault(e);
+    jQuery(".aa-product-catg").addClass("list");
+  });
+  jQuery("#grid-catg").click(function(e){
+    e.preventDefault(e);
+    jQuery(".aa-product-catg").removeClass("list");
+  });
+
+
+  /* ----------------------------------------------------------- */
+  /*  13. RELATED ITEM SLIDER (SLICK SLIDER)
+  /* ----------------------------------------------------------- */      
+
+    jQuery('.aa-related-item-slider').slick({
+      dots: false,
+      infinite: false,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    }); 
+    
 });
+
