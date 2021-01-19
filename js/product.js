@@ -1,7 +1,13 @@
 $(document).ready(function(){
-    $(".tab-content").load("basketball.html");
-$(document).on("click", "#basketball, .tab-content", function(e){
-    e.preventDefault();
+    $(document).on("click", "#1, #aa-product-category", function(e){
+        e.preventDeafult();
+    
+        $("aa-product-category").load("football.html");
+    });
 
-    $(".tab-content").load("basketball.html");
-}))
+    %("#2").on("click", function(e).{
+        e.preventDeafult();
+
+        $("aa-product-category").load("football.html")
+    })
+});
